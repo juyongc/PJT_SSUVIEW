@@ -1,0 +1,22 @@
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar {
+  position: relative;
+  width: 35%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid orange;
+  background: transparent;
+  margin-left: 10px;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.fas {
+  text-align: end;
+}

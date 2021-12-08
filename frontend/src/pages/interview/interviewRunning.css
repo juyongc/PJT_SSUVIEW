@@ -1,0 +1,354 @@
+
+.interviewRunning_page::before{
+  content: "";
+  background-image: url('../../image/Page2_back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.3; 
+}
+.interviewRunning_page {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.91) ;
+}
+/* .interviewRunning_page .bg1
+{
+  background-color: rgba(0,0,0,0.91) ;
+  width: 120px;
+  position: relative;
+} */
+
+.interviewRunning_page .question {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 2px solid #BBBBBB;
+  background-color: rgba(200,200,200,0.2);
+  border-radius: 10px;
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  width: 80%;
+  height: 7%;
+  margin: 2vh auto;
+}
+
+.interviewRunning_page .question_font {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.interviewRunning_page .submit {
+  display: flex;
+  background-color: rgba(0,0,0,0.6) ;
+  border: 2px solid #E58D25;
+  width: 50%;
+  height: 4vh;
+}
+
+.interviewRunning_page .submit_font {
+  color: white;
+  font-weight: 600;
+}
+
+.interviewRunning_page .title {
+  background-color: #333333;
+  opacity: 0.6;
+  height: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.interviewRunning_page .titleFont {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.interviewRunning_page .content {
+  position: absolute;
+  left: 20vw;
+  top: 15vh;
+  height: 70vh;
+  width: 60vw;
+  border: solid 2px #E58D25;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0.9;
+}
+.interviewRunning_page .contentShowAnimation {
+  position: absolute;
+  left: 20vw;
+  top: 15vh;
+  height: 70vh;
+  width: 60vw;
+  border: solid 2px #E58D25;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0.9;
+  transition: 1.0s;
+}
+.interviewRunning_page .contentHideAnimation {
+  position: absolute;
+  left: 35vw;
+  top: 15vh;
+  height: 70vh;
+  width: 32vw;
+  border: solid 2px #E58D25;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.8);
+  opacity: 0.9;
+  transition: 1.0s;
+}
+
+.interviewRunning_page .content .bg1
+{
+  justify-content: center;
+  align-items: center;
+  height: 69vh;
+  width: 30%;
+  border-right: 1px solid #E58D25;
+  z-index: 2;
+}
+.interviewRunning_page .bg1::before {
+  background-color: #EEEEEE;
+  border-radius: 30px;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+.interviewRunning_page .content .bg1 .webcam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4;
+}
+
+.interviewRunning_page .content .bg1 .webcam img{
+  width: 13vmin;
+  height: 13vmin;
+}
+
+/* .interviewRunning_page .content .timer-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 1vh;
+  color: white;
+  font-weight: 600;
+  font-size: 3vmin;
+} */
+
+.interviewRunning_page .content .timer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2vh;
+  color: white;
+  font-weight: 600;
+  font-size: 3.5vmin;
+}
+
+.interviewRunning_page .recordStartButton {
+  margin-top: 2%;
+  background-color: #14A8BB;
+  width: 25vw
+}
+
+/* .interviewRunning_page .playButtonStyle {
+  width: 5vh;
+  height: 5vh;
+} */
+
+.interviewRunning_page .record-button {
+	width: 3vh;
+	height: 3vh;
+	font-size: 0;
+	background-color: red;
+	border: 0;
+	border-radius: 3vh;
+	margin: 2vh;
+	outline: none;
+  position: absolute;
+}
+
+.interviewRunning_page .record-button:hover {
+  cursor: pointer;
+}
+
+.notRec{
+	background-color: darkred;
+}
+
+.Rec{
+	animation-name: pulses;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes pulses {
+  0%{
+		box-shadow: 0px 0px 5px 0px rgba(255,0,0,.7);
+	}
+	65%{
+		box-shadow: 0px 0px 5px 13px rgba(255,0,0,.7);
+	}
+	90%{
+		box-shadow: 0px 0px 5px 13px rgba(255,0,0,0);
+	}
+}
+
+
+.interviewRunning_page .right_bg {
+  margin: 2vh auto;
+}
+.interviewRunning_page .bg2 {
+  /* background-color: rgba(0,0,0,0.6); */
+  border-radius: 30px;
+  width: 24vw;
+  height: 55vh;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.interviewRunning_page .showScriptButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interviewRunning_page .scriptBg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  width: 100%;
+}
+.interviewRunning_page .scriptBg::-webkit-scrollbar {
+  width: 10px;
+}
+.interviewRunning_page .scriptBg::-webkit-scrollbar-thumb {
+  background-color: #E58D25;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.interviewRunning_page .scriptBg::-webkit-scrollbar-track {
+  background-color: rgba(10,10,10,0.6);
+  border-radius: 100px;
+}
+.interviewRunning_page .script {
+  padding: 4%;
+}
+.interviewRunning_page .scriptHideButton {
+  background-color: #E58D25;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 1.2vw;
+  color: white;
+  height: 69.5vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.interviewRunning_page .scriptHideButtonText {
+  position: absolute;
+  top: 34vh;
+}
+/* 애니메이션 스크립트 이동 */
+.interviewRunning_page .scriptHideAnimation {
+  transform: translateX(-14vw);
+  animation: fadeout 0.5s;
+  transition: 1.0s;
+  opacity: 0;
+}
+.interviewRunning_page .scriptShowAnimation {
+  transform: translateX(0vw);
+  animation: fadein 2s;
+  transition: 1.0s;
+}
+/* 애니메이션 스크립트 버튼만  */
+.interviewRunning_page .scriptHideButtonAnimation {
+  transform: translateX(-14vw);
+  transition: 1.0s;
+}
+.interviewRunning_page .scriptShowButtonAnimation {
+  transform: translateX(0vw);
+  transition: 1.0s;
+}
+/* 애니메이션 웹캠 부분  */
+.interviewRunning_page .webcamHideAnimation {
+  transform: translateX(15vw);
+  transition: 1.0s;
+}
+.interviewRunning_page .webcamShowAnimation {
+  transform: translateX(0vw);
+  transition: 1.0s;
+}
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+@keyframes fadeout {
+  from {
+      opacity:1;
+  }
+  to {
+      opacity:0;
+  }
+}
+.interviewRunning_page .scriptHideButton:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.interviewRunning_page .result_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  height: 7vh;
+  border-radius: 10px;
+  font-size: 3vmin;
+  border: 0px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+.interviewRunning_page .footer {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 86vh;
+}
+.interviewRunning_page .modalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7vw;
+  height: 4vh;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 0px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+}

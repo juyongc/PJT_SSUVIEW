@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.main button
+{
+  width: 20vmin;
+  height: 6vh;
+  background-color: #E58D25;
+  position: relative;
+  border-radius: 10px;
+  font-size: 1em;
+  border: 0px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  margin:20px;
+  transition: 0.3s;
+}
+
+.main button:hover
+{
+  color: #E58D25;
+  border-top: 1px solid #E58D25;
+}
+
+
+.main h1
+{
+  color: #E58D25;
+  position: relative;
+  font-size: 3vmin;
+}
+
+.main h2
+{
+  color: #E58D25;
+  position: relative;
+  font-family: 'Playfair Display';
+  font-size: 8vh;
+  margin: 0;
+}
+
+.main p
+{
+  color: white;
+  position: relative;
+}
+
+.main img
+{
+  color: white;
+  position: relative;
+}
+
+.Page1
+{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: rgba(20, 20, 20, 1) ;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+}
+
+.Page1 .image:hover div
+{
+  opacity: 1;
+}
+
+.Page1 .image div
+{
+  transition: 0.5s;
+}
+
+.Page1 .image img
+{
+  transition: 0.5s;
+}
+
+.Page1 .image:hover img
+{
+  filter: brightness(30%);
+}
+
+.Page1 .image
+{
+  position: relative;
+  overflow-y: scroll;
+}
+
+.Page1 .image::-webkit-scrollbar {
+  display: none;
+}
+
+.Page1 .image div
+{
+  position: absolute;
+  top: 50%;
+	left: 50%;
+	transform: translate( -50%, -50% );
+  z-index: 100;
+  text-align: center;
+  width: 80%;
+  opacity: 0;
+  font-size: 1.5vmin;
+}
+
+.Page1 .image div p
+{
+  color: #E58D25;
+  margin: 0;
+  padding: 0;
+}
+
+.Page2::before{
+  content: "";
+  background-image: linear-gradient(
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.4) 10%,
+    rgba(20, 20, 20, 0) 15%,
+    rgba(20, 20, 20, 0) 85%,
+    rgba(20, 20, 20, 0.4) 90%,
+    rgba(20, 20, 20, 1) 100%
+  ),url('../../image/Page2_back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.3; 
+}
+
+.Page2
+{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(20, 20, 20, 1) ;
+}
+
+.Page2 .right
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.Page2 .left
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.8vmin;
+}
+
+.Page2 .image {
+  width: 100%;
+  height: 20vh;
+}
+
+
+.Page3::before{
+  content: "";
+  background-image: linear-gradient(
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.4) 10%,
+    rgba(20, 20, 20, 0) 15%,
+    rgba(20, 20, 20, 0) 85%,
+    rgba(20, 20, 20, 0.4) 90%,
+    rgba(20, 20, 20, 1) 100%
+  ),url('../../image/Page3_back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.3; 
+}
+
+.Page3
+{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(0,0,0,0.91) ;
+}
+
+.Page3 .left
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 1.8vmin;
+}
+
+.Page3 .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.Page3 .left p
+{
+  font-size: 1.5vmin;
+}
+/* 
+.Page3 .tmp_className
+{
+  height: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+} */
+
+.Page4::before{
+  content: "";
+  background-image: linear-gradient(
+    rgba(20, 20, 20, 1) 0%,
+    rgba(20, 20, 20, 0.1) 15%,
+    rgba(20, 20, 20, 0) 50%,
+    rgba(20, 20, 20, 0) 100%
+  ),url('../../image/Page4_back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.3; 
+}
+
+
+.Page4
+{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,0.91) ;
+  font-size: 1.8vmin;
+}
+
+.Page4 h2
+{
+  display: flex;
+  justify-content: center;
+}
+
+/* .Page h3 {
+  display: flex;
+  justify-content: center;
+} */
+
+.Page4 .left
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.Page4 .right
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+
+}
+
+.Page4 .footer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Page4 .footer img
+{
+  width: 8vmin;
+  height: 8vmin;
+  border-radius: 100px;
+  margin-left: 1vmin;
+}
+
+.Page4 h3
+{
+  position: relative;
+  font-family: 'Playfair Display';
+  color: #E58D25;
+  font-size:6vmin;
+}

@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.YoutubeResult_page::before{
+  content: "";
+  background-image: url('../../image/library.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  height: 100vh;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.1; 
+}
+/* .YoutubeResult_page .youtubePage {
+  margin-top: 50px;
+}  */
+.YoutubeResult_page {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.91) ;
+}
+
+.YoutubeResult_page .firstGrid {
+  position: absolute;
+  top: 15vh;
+  left: 20vw;
+  width: 30vw;
+  height: 75vh;
+  padding-right: 2vw;
+  border-right: 1px solid #E58D25;
+}
+
+.YoutubeResult_page .part2 {
+  position: absolute;
+  top: 15vh;
+  left: 52vw;
+  width: 30vw;
+  height: 75vh;
+}
+
+.YoutubeResult_page .myVideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2vh;
+  padding-bottom: 2vh;
+  border-bottom: 1px solid goldenrod;
+}
+
+.YoutubeResult_page .emotion .emotion-chart-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:goldenrod;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+  height: 5vh;
+}
+.YoutubeResult_page .emotion .emotion-chart {
+  width: 28vh;
+  height: 28vh;
+}
+.YoutubeResult_page .emotion .emotion-chart:hover {
+  background-color: rgba(150,150,150,0.2);
+}
+
+
+
+/* .YoutubeResult_page .rowLine {
+  background-color: goldenrod;
+  color: goldenrod;
+  border: 0.01px solid goldenrod;
+} */
+
+.YoutubeResult_page .part2 .colLine {
+  border-left: 1px solid goldenrod; 
+  width: 0px; 
+  /* height: 140px; */
+  color: goldenrod;
+}
+.YoutubeResult_page .chartBlock {
+  display: flex;
+  justify-content: space-between;
+}
+.YoutubeResult_page .chartBlockEmotionLabel {
+  color: white;
+  margin: 2vh;
+  width: 10vw;
+  height: 28vh;
+  border: 1px solid goldenrod;
+  border-radius: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.YoutubeResult_page .part2 .grade {
+  display: flex;
+  border-top: 1px solid goldenrod;
+  padding-top: 1vh;
+  border-bottom: 1px solid goldenrod;
+  padding-bottom: 1vh;
+  height: 13vh;
+}
+.YoutubeResult_page .scoreTextStyle {
+  /* font-family: 'Playfair Display'; */
+  font-family: Times, "Times New Roman", Georgia, serif;
+  font-size: 7vh;
+  border-bottom: 1px solid goldenrod;
+}
+
+.YoutubeResult_page .gradeImgBlock {
+  margin: auto;
+  display: flex inline;
+  text-align: center;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.YoutubeResult_page .gradeImg {
+  width: 20vh;
+  height: 20vh;
+  position: absolute;
+  left: 45vw;
+  top: 10vh;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+  animation-delay:2.5s;
+  -webkit-animation-delay:2.5s;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  opacity: 0;
+  -webkit-animation-fill-mode:forwards;
+   animation-fill-mode:forwards;
+}
+
+@keyframes pulse{
+  0%{
+    opacity: 0;
+  }
+  10%{
+    opacity:.50;
+    transform-origin: 50% 50%;
+    transform: rotate(-2deg) scale(5);
+    transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  }
+  100%{
+    opacity:1;
+    transform: rotate(-15deg) scale(1);
+  }
+}
+
+.YoutubeResult_page .part2 .grade .myScore {
+  margin: auto;
+  display: flex inline;
+  text-align: center;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: goldenrod;
+  font-size: 12px;
+}
+.YoutubeResult_page .part2 .grade .myEmotion {
+  margin: auto;
+  display: flex inline;
+  text-align: center;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: goldenrod;
+  font-size: 12px;
+  border-left: 1px solid goldenrod;
+}
+
+.YoutubeResult_page .part2 .grade .mySpeech {
+  margin: auto;
+  display: flex inline;
+  text-align: center;
+  padding: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: goldenrod;
+  font-size: 12px;
+  border-left: 1px solid goldenrod;
+}
+
+.YoutubeResult_page .part2 .scriptType {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: goldenrod;
+}
+
+
+.YoutubeResult_page .scriptResultTop{
+  /* width: 5vw; */
+  height: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 1vh;
+  margin-top: 2vh;
+}
+
+/* .YoutubeResult_page .part2 img{
+  width: 150px;
+} */
+
+.YoutubeResult_page .part2 .scripts {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+
+.YoutubeResult_page .part2 .myScript {
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 52vh;
+}
+.YoutubeResult_page .part2 .originalScript {
+  background-color: rgba(0,0,0,0.3);
+  margin-left: 1vw;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+  border-radius: 10px;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 52vh;
+}
+.YoutubeResult_page .scriptText {
+  padding-left: 5%;
+}
+.YoutubeResult_page .myScript::-webkit-scrollbar {
+  width: 8px;
+}
+.YoutubeResult_page .myScript::-webkit-scrollbar-thumb {
+  background-color: #E58D25;
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.YoutubeResult_page .myScript::-webkit-scrollbar-track {
+  background-color: rgba(10,10,10,0.6);
+  border-radius: 100px;
+}
+
+.YoutubeResult_page .originalScript::-webkit-scrollbar {
+  width: 8px;
+}
+.YoutubeResult_page .originalScript::-webkit-scrollbar-thumb {
+  background-color: #E58D25;
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.YoutubeResult_page .originalScript::-webkit-scrollbar-track {
+  background-color: rgba(10,10,10,0.6);
+  border-radius: 100px;
+}

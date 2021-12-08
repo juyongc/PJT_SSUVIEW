@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.SelectQuestion_page::before{
+  content: "";
+  background-image: url('../../image/Page2_back.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  background-size: cover;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  opacity: 0.3; 
+}
+
+.SelectQuestion_page
+{
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0,0,0,0.91) ;
+}
+
+.SelectQuestion_page h1
+{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  color: #E58D25;
+  font-size: 7vmin;
+  font-family: 'Playfair Display';
+}
+
+.SelectQuestion_page div
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  height: 50vh;
+}
+
+.SelectQuestion_page div::-webkit-scrollbar
+{
+  display: none;
+}
+
+.SelectQuestion_page div button
+{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 100px;
+  border: 0;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  font-size: 2.3vmin;
+  margin: 20px;
+  padding: 20px;
+}
+
+.SelectQuestion_page div button:hover
+{
+  color: #E58D25;
+  border-top: 1px solid #E58D25;
+}
+
+.SelectQuestion_page .back
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11vw;
+  height: 7vh;
+  border-radius: 10px;
+  font-size: 3vmin;
+  border: 0px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 8vh;
+  left: 4vw;
+}
+
+.SelectQuestion_page .back:hover
+{
+  color: #E58D25;
+  border-top: 1px solid #E58D25;
+}

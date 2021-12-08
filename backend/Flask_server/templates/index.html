@@ -1,0 +1,48 @@
+{#  ============================================================================#}
+<html>
+
+<head>
+    <title>Flask API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'style.css') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function toggle_display() {
+
+            el = document.querySelector('#loading')
+            if (el.style.visibility == 'visible') {
+                el.style.visibility = 'hidden'
+            } else {
+                el.style.visibility = 'visible'
+            }
+        }
+    </script>
+</head>
+
+<body>
+<h1>Model serving</h1>
+<div class="agile-its">
+    <h2>Super Resolution</h2>
+    <div class="w3layouts">
+        <div class="photos-upload-view">
+
+            <form id="upload" action="/model" method="POST" enctype="multipart/form-data">
+                <div class="upload-btn-wrapper">
+                    <label class="btn">
+                        파일추가<input type="file" value="Upload" name="file" accept="image/*" multiple="multiple"
+                                   style="display: none;">
+                    </label>
+                </div>
+                Comment(ID) 입력란 : <input type = "text" name = "name">
+                <input type="submit" id="uploadButton" value="업로드 실행" onclick="toggle_display()">
+            </form>
+            <div class="loading" id="loading" style="visibility: hidden">
+                <img src="{{ url_for('static', filename='Loading.gif') }}" alt="loading!!!">
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

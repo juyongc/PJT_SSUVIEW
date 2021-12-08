@@ -1,0 +1,32 @@
+
+.navbar .navbar_container
+{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.navbar .navbar_container p
+{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 2vmin;
+  font-weight: bold;
+}
+
+.navbar .navbar_container .link
+{
+  text-decoration-line: none;
+  color: black;
+
+}
+
+.navbar .link:hover
+{
+  color:#E58D25;
+}

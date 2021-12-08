@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.videoList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+.videoList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+.video-style {
+  position: relative;
+  display: flex;
+  width: 60%;
+  height: 20vh;
+  margin-top: 2vh;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  border-radius: 3px;
+  border: 1px solid white;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: 0.5s;
+  
+}
+.video-style:hover {
+  background-color: lightsalmon;
+  transition: 1.5s;
+}
+
+.video-title {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  font-size: 3vmin;
+
+} 
+
+.video-thumbnail {
+  position: relative;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.videoList_header
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #E58D25;
+  font-size: 7vmin;
+  font-family: 'Playfair Display';
+  padding: 20px;
+}
+
+.video-back{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11vw;
+  height: 7vh;
+  border-radius: 10px;
+  font-size: 3vmin;
+  border: 0px;
+  color: white;
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 25px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  border-top: 1px solid rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 8vh;
+  left: 4vw;
+}
+
+.video-back:hover
+{
+  color: #E58D25;
+  border-top: 1px solid #E58D25;
+}
