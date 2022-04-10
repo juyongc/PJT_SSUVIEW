@@ -17,11 +17,11 @@ function SelectYoutube(){
 
     const URL = 'https://www.googleapis.com/youtube/v3/videos'
     // const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY
-    const params = {
-        key: 'AIzaSyB0qgqnmP7rbdIR03ce_YaaSz0pa7TyY6Q',
-        part: 'snippet',
-        id: ''
-    }
+//     const params = {
+//         key: SECRET_,
+//         part: 'snippet',
+//         id: ''
+//     }
 
     useEffect(() => {
       videoIds.map((id) => {
