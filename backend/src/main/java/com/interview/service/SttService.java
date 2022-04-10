@@ -56,73 +56,66 @@ public class SttService {
         return costs[s2.length()];
     }
 
+    // 한국어 STT vs script 비교
     public Map analyzeVoiceKr(String script, List voice){
-        StringBuilder sb = new StringBuilder();
-        System.out.println(script);
-        String[] scriptArray = script.split(" ");
 
-        //원본 스크립트 " "을 잘라서 List에 분배
+        /**
+         * STT에서 스크립트와 유사도 낮은 문자열 찾기
+         */
+
+        StringBuilder sb = new StringBuilder();
+        String[] scriptArray = script.split(" ");                   // 스크립트 => 단어로 자르기
         for(int i = 0; i < scriptArray.length; i++){
-            scriptArray[i] = scriptArray[i].replace(".", "");
+            scriptArray[i] = scriptArray[i].replace(".", "");       // "." 제거
         }
-        //.도 빼준다
-        List<String> voiceArray = new ArrayList<>();
+
+        List<String> voiceArray = new ArrayList<>();                // STT 결과 저장용
         for(int i = 0; i < voice.size(); i++){
-            String[] temp = voice.get(i).toString().split(" ");
+            String[] temp = voice.get(i).toString().split(" ");     // 입력받은 STT 결과물을 단어로 자르기
             for(String t : temp){
-                voiceArray.add(t);
+                voiceArray.add(t);                                  // voiceArray에 추가
             }
         }
 
         boolean check = false;
         int indexTemp = 0;
-
+        // 모든 스크립트 단어 비교
         for(int i = 0; i < scriptArray.length; i++){
-            int idx = indexTemp;
+            int idx = indexTemp;        // STT 단어 리스트에서의 인덱스
+            // 현재 인덱스가 STT보다 작고 && 스크립트보다 작고 && 스크립트와 STT 인덱스 일정 격차(+3) 이내
             while(idx < voiceArray.size() && idx < scriptArray.length && idx < i+3){
-                if(scriptArray[i].length() >= voiceArray.get(idx).length()){
-//                    System.out.println("if 들어오는 것 : " + scriptArray[i] + "/" + voiceArray.get(idx));
-                    // 첫번째 유사도 확인
+                if(scriptArray[i].length() >= voiceArray.get(idx).length()){        // 스크립트 단어 길이가 더 길거나 같은 경우
+                    // 첫번째 유사도 확인 - 유사도를 판단해서 어느정도 유사하면 틀리다고 처리안하고 넘어감(경험값 => 0.6)
                     if(similarity(scriptArray[i], voiceArray.get(idx)) > 0.6){
-                        //유사도를 판단해서 비슷한지 아닌지 판단, 어느정도 유사하면 틀리다고 처리안하고 넘어감.
-//                        System.out.println("첫째 "+ scriptArray[i] + "/" + voiceArray.get(idx));
                         indexTemp++;
                         break;
                     }
                     else{
-                        //유사도가 낮으면 , 원본스크립트는 ex)뽑아 주신다면  변환 스크립트는 ex)뽑아주신다면 처럼
-                        //" " 공백차이때문일수도 있기때문에 이러한 상황을 판단해봄.
+                        // 두번째 유사도 확인 - 띄어쓰기로 인한 문제일 수 있으니 다음 문자열과 합한 뒤 테스트
+                        //ex. "뽑아 주신다면" / "뽑아주신다면" 처럼 띄어쓰기로 인한 문제 판단
                         if(idx + 1 < voiceArray.size()) {
                             String temp = voiceArray.get(idx) + voiceArray.get(idx + 1);
-                            // 두번째 유사도 확인 - 공백으로 인한 문제일 수 있으니 다음 문자열과 합한 뒤 테스트하는 형식
                             if (similarity(scriptArray[i], temp) > 0.6) {
                                 check = true;
                                 voiceArray.set(idx , voiceArray.get(idx) + voiceArray.get(idx+1));
                                 voiceArray.remove(idx + 1);
-//                                System.out.println("둘째 : " + scriptArray[i] + "/" + temp);
                                 indexTemp++;
                                 break;
                             }
                             else {
                                 sb.append(idx+" ");
-//                            	sb.append(voiceArray.get(idx)+" ");
                                 indexTemp++;
-//                                System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                                 break;
                             }
                         }else {	// 인덱스 개수가 같을 때 빠져나갈 방법이 없음 => 만들어 주기
                             sb.append(idx+" ");
-//                        	sb.append(voiceArray.get(idx)+" ");
                             indexTemp++;
-//                            System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                             break;
                         }
                     }
-                }else{
-//                    System.out.println("else 들어오는 것 : " + scriptArray[i] + "/" + voiceArray.get(idx));
+                }else{      // STT 단어 길이가 더 길 경우
                     if(similarity(scriptArray[i], voiceArray.get(idx)) > 0.6){
                         check = true;
-//                        System.out.println("셋째 : " + scriptArray[i] + "/" + voiceArray.get(idx));
                         break;
                     }
                     else{
@@ -130,23 +123,17 @@ public class SttService {
                             String temp = scriptArray[i] + scriptArray[i+1];
                             if (similarity(voiceArray.get(idx), temp) > 0.6) {
                                 check = true;
-//                                ++i;
                                 indexTemp++;
-//                                System.out.println("넷째 : " + temp + "/" + voiceArray.get(idx));
                                 break;
                             }
                             else {
                                 sb.append(idx+" ");
-//                                sb.append(voiceArray.get(idx)+" ");
                                 indexTemp++;
-//                                System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                                 break;
                             }
                         } else {
                             sb.append(idx+" ");
-//                        	sb.append(voiceArray.get(idx)+" ");
                             indexTemp++;
-//                            System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                             break;
                         }
                     }
@@ -154,6 +141,18 @@ public class SttService {
                 }
             }
         }
+
+        // voiceArray에 비교되지 못한 인덱스 추가하기
+        if (indexTemp < voiceArray.size()) {
+            for(int i = indexTemp; i < voiceArray.size(); i++){
+                sb.append(i + " ");
+            }
+        }
+
+        /**
+         * STT vs 스크립트 유사도 점수 측정
+         */
+
         String remScript = "";	// 공백,특수문자 제거한 기존 스크립트
         String remVoice = "";	// 공백 제거한 보이스 기반 스크립트
 
@@ -165,18 +164,16 @@ public class SttService {
         }
         // remScript, remVoice 사이 유사도 확인
         double score = similarity(remScript,remVoice);
+
+        /**
+         * STT 결과물 문자열로 만들기
+         */
         StringBuilder voiceBuilder = new StringBuilder();
         for(int i = 0; i < voiceArray.size(); i++){
             voiceBuilder.append(voiceArray.get(i) + " ");
         }
-        // voiceArray에 비교되지 못한 인덱스 추가하기
-        if (indexTemp < voiceArray.size()) {
-            for(int i = indexTemp; i < voiceArray.size(); i++){
-                sb.append(i + " ");
-            }
-        }
-        //StringBuilder를 활용하여 수정된 스크립트와 ex) 아... 음... 이런 단어는 뺀 스크립트
-        //에러난 단어들을 모아둔 Stringbuilder
+
+        // 딕셔너리로 전체 반환
         Map<String, String> result = new HashMap<>();
         result.put("script", voiceBuilder.toString());
         result.put("score", String.valueOf(score));
@@ -184,6 +181,7 @@ public class SttService {
         return result;
     }
 
+    // 영어 - 방법은 위와 동일
     public Map analyzeVoiceEn(String script, List voice){
         script = script.toLowerCase();
         StringBuilder sb = new StringBuilder();
@@ -208,48 +206,34 @@ public class SttService {
             int idx = indexTemp;
             while(idx < voiceArray.size() && idx < scriptArray.length && idx < i+3){
                 if(scriptArray[i].length() >= voiceArray.get(idx).length()){
-//                    System.out.println("if 들어오는 것 : " + scriptArray[i] + "/" + voiceArray.get(idx));
-                    // 첫번째 유사도 확인
                     if(similarity(scriptArray[i], voiceArray.get(idx)) > 0.6){
-                        //유사도를 판단해서 비슷한지 아닌지 판단, 어느정도 유사하면 틀리다고 처리안하고 넘어감.
-//                        System.out.println("첫째 "+ scriptArray[i] + "/" + voiceArray.get(idx));
                         indexTemp++;
                         break;
                     }
                     else{
-                        //유사도가 낮으면 , 원본스크립트는 ex)뽑아 주신다면  변환 스크립트는 ex)뽑아주신다면 처럼
-                        //" " 공백차이때문일수도 있기때문에 이러한 상황을 판단해봄.
                         if(idx + 1 < voiceArray.size()) {
                             String temp = voiceArray.get(idx) + voiceArray.get(idx + 1);
-                            // 두번째 유사도 확인 - 공백으로 인한 문제일 수 있으니 다음 문자열과 합한 뒤 테스트하는 형식
                             if (similarity(scriptArray[i], temp) > 0.6) {
                                 check = true;
                                 voiceArray.set(idx , voiceArray.get(idx) + voiceArray.get(idx+1));
                                 voiceArray.remove(idx + 1);
-//                                System.out.println("둘째 : " + scriptArray[i] + "/" + temp);
                                 indexTemp++;
                                 break;
                             }
                             else {
                                 sb.append(idx+" ");
-//                            	sb.append(voiceArray.get(idx)+" ");
                                 indexTemp++;
-//                                System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                                 break;
                             }
-                        }else {	// 인덱스 개수가 같을 때 빠져나갈 방법이 없음 => 만들어 주기
+                        }else {
                             sb.append(idx+" ");
-//                        	sb.append(voiceArray.get(idx)+" ");
                             indexTemp++;
-//                            System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                             break;
                         }
                     }
                 }else{
-//                    System.out.println("else 들어오는 것 : " + scriptArray[i] + "/" + voiceArray.get(idx));
                     if(similarity(scriptArray[i], voiceArray.get(idx)) > 0.6){
                         check = true;
-//                        System.out.println("셋째 : " + scriptArray[i] + "/" + voiceArray.get(idx));
                         break;
                     }
                     else{
@@ -257,23 +241,17 @@ public class SttService {
                             String temp = scriptArray[i] + scriptArray[i+1];
                             if (similarity(voiceArray.get(idx), temp) > 0.6) {
                                 check = true;
-//                                ++i;
                                 indexTemp++;
-//                                System.out.println("넷째 : " + temp + "/" + voiceArray.get(idx));
                                 break;
                             }
                             else {
                                 sb.append(idx+" ");
-//                                sb.append(voiceArray.get(idx)+" ");
                                 indexTemp++;
-//                                System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                                 break;
                             }
                         } else {
                             sb.append(idx+" ");
-//                        	sb.append(voiceArray.get(idx)+" ");
                             indexTemp++;
-//                            System.out.println("마지막 실패 : " + scriptArray[idx] + "/" + voiceArray.get(idx));
                             break;
                         }
                     }
@@ -302,8 +280,7 @@ public class SttService {
                 sb.append(i + " ");
             }
         }
-        //StringBuilder를 활용하여 수정된 스크립트와 ex) 아... 음... 이런 단어는 뺀 스크립트
-        //에러난 단어들을 모아둔 Stringbuilder
+
         Map<String, String> result = new HashMap<>();
         result.put("script", voiceBuilder.toString());
         result.put("score", String.valueOf(score));
