@@ -21,7 +21,7 @@
 - 팀원 : 5명 (프론트엔드: 3명, 백엔드: 2명)
 - 프로젝트 기간: 2021.10.11 ~ 2021.11.26
 - 내가 담당한 부분
-  - CI/CD
+  - [CI/CD](https://github.com/juyongc/PJT_SSUVIEW/blob/main/cicd/CICD%20%EA%B3%BC%EC%A0%95.md)
   - [STT스크립트 유사도 측정 및 API 구현](https://github.com/juyongc/PJT_SSUVIEW/blob/main/backend/src/main/java/com/interview/service/SttService.java)
 
 
