@@ -22,7 +22,7 @@
 - 프로젝트 기간: 2021.10.11 ~ 2021.11.26
 - 내가 담당한 부분
   - CI/CD
-  - STT스크립트 유사도 측정 및 API 구현 
+  - [STT스크립트 유사도 측정 및 API 구현](https://github.com/juyongc/PJT_SSUVIEW/blob/main/backend/src/main/java/com/interview/service/SttService.java)
 
 
 
